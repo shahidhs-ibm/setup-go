@@ -61955,6 +61955,9 @@ function getArch(arch) {
         // case 'ppc':
         //   arch = 'ppc64';
         //   break;
+        case 'ppc64le':
+            arch = 'ppc64le';
+            break;
         case 'x32':
             arch = '386';
             break;
