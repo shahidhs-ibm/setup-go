@@ -61947,7 +61947,7 @@ function getPlatform() {
 }
 exports.getPlatform = getPlatform;
 function getArch(arch) {
-    // 'arm', 'arm64', 'ia32', 'mips', 'mipsel', 'ppc', 'ppc64', 's390', 's390x', 'x32', and 'x64'.
+    // 'arm', 'arm64', 'ia32', 'mips', 'mipsel', 'ppc', 'ppc64', 'ppc64le', 's390', 's390x', 'x32', and 'x64'.
     // wants amd64, 386, arm64, armv61, ppc641e, s390x
     // currently not supported by runner but future proofed mapping
     let myarch = os_1.default.arch(); //SHS
