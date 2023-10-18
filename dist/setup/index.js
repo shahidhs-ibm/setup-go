@@ -61395,7 +61395,8 @@ const sys = __importStar(__nccwpck_require__(4300));
 const fs_1 = __importDefault(__nccwpck_require__(7147));
 const os_1 = __importDefault(__nccwpck_require__(2037));
 const utils_1 = __nccwpck_require__(1314);
-function getGo(versionSpec, checkLatest, auth, arch = os_1.default.arch()) {
+//function getGo(versionSpec, checkLatest, auth, arch = os_1.default.arch()) {
+function getGo(versionSpec, checkLatest, auth, arch = os_1.arch()) {
     return __awaiter(this, void 0, void 0, function* () {
         let manifest;
         const osPlat = os_1.default.platform();
