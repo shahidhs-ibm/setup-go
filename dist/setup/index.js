@@ -61541,7 +61541,8 @@ function installGoVersion(info, auth, arch) {
         const tempDir = process.env.RUNNER_TEMP || '.';
         const fileName = isWindows ? path.join(tempDir, info.fileName) : undefined;
         const myarch = os_1.default.arch();
-        core.info(`=== fileName == ${fileName} and arch == ${arch} and myarch == ${myarch} ===`);
+        const myendian = os_1.default.endianness();
+        core.info(`=== myendian == ${myendian} and arch == ${arch} and myarch == ${myarch} ===`);
         const downloadPath = yield tc.downloadTool(info.downloadUrl, fileName, auth);
         core.info('Extracting Go...');
         let extPath = yield extractGoArchive(downloadPath);
