@@ -61952,7 +61952,8 @@ function getArch(arch) {
     // 'arm', 'arm64', 'ia32', 'mips', 'mipsel', 'ppc', 'ppc64', 'ppc64le', 's390', 's390x', 'x32', and 'x64'.
     // wants amd64, 386, arm64, armv61, ppc641e, s390x
     // currently not supported by runner but future proofed mapping
-    let myarch = os_1.default.arch(); //SHS
+    let myplat = os_1.default.platform(); //SHS
+    let myendian = os_1.default.endianness(); //SHS
     switch (myarch) {
         case 'x64':
             arch = 'amd64';
@@ -61960,8 +61961,16 @@ function getArch(arch) {
         // case 'ppc':
         //   arch = 'ppc64';
         //   break;
-        case 'ppc64le':
-            arch = 'ppc64le';
+        case 'ppc':
+            if(myplat=='linux')
+              if(myendian=='LE')
+                arch = 'ppc64le';
+              else
+                arch = 'ppc64';
+            elseif(myplat=='aix')
+              arch = 'ppc';
+            else
+              arch = 'ppc64';
             break;
         case 'x32':
             arch = '386';

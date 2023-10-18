@@ -27,8 +27,16 @@ export function getArch(arch: string): string {
     // case 'ppc':
     //   arch = 'ppc64';
     //   break;
-    case 'ppc64le':
-      arch = 'ppc64le';
+    case 'ppc':
+      if(myplat=='linux')
+        if(myendian=='LE')
+          arch = 'ppc64le';
+        else
+          arch = 'ppc64';
+      elseif(myplat=='aix')
+        arch = 'ppc';
+      else
+        arch = 'ppc64';
       break;
     case 'x32':
       arch = '386';
