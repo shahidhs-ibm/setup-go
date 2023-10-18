@@ -61954,7 +61954,7 @@ function getArch(arch) {
     // currently not supported by runner but future proofed mapping
     let myplat = os_1.default.platform(); //SHS
     let myendian = os_1.default.endianness(); //SHS
-    switch (myarch) {
+    switch (arch) {
         case 'x64':
             arch = 'amd64';
             break;
