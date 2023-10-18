@@ -329,8 +329,10 @@ export async function findMatch(
   versionSpec: string,
   arch = os.arch()
 ): Promise<IGoVersion | undefined> {
+  core.info(`os.arch returned arch as == ${arch}`); //SHS
   const archFilter = sys.getArch(arch);
   const platFilter = sys.getPlatform();
+  core.info(`archFilter returned arch as == ${archFilter}`); //SHS
 
   let result: IGoVersion | undefined;
   let match: IGoVersion | undefined;
@@ -349,6 +351,7 @@ export async function findMatch(
     const version = makeSemver(candidate.version);
 
     core.debug(`check ${version} satisfies ${versionSpec}`);
+    core.info(`file.arch == ${file.arch} AND archFilter == ${archFilter}`); //SHS
     if (semver.satisfies(version, versionSpec)) {
       goFile = candidate.files.find(file => {
         core.debug(
