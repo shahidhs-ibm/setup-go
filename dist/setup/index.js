@@ -61962,15 +61962,20 @@ function getArch(arch) {
         //   arch = 'ppc64';
         //   break;
         case 'ppc':
-            if(myplat=='linux')
-              if(myendian=='LE')
+            if(myplat=='linux') {
+              if(myendian=='LE') {
                 arch = 'ppc64le';
-              else
+              }
+              else {
                 arch = 'ppc64';
-            elseif(myplat=='aix')
+              }
+            }
+            else if(myplat=='aix') {
               arch = 'ppc';
-            else
+            }
+            else {
               arch = 'ppc64';
+            }
             break;
         case 'x32':
             arch = '386';

@@ -18,6 +18,8 @@ export function getPlatform(): string {
 export function getArch(arch: string): string {
   // 'arm', 'arm64', 'ia32', 'mips', 'mipsel', 'ppc', 'ppc64', 'ppc64le', 's390', 's390x', 'x32', and 'x64'.
   let myarch: string = os.arch(); //SHS
+  let myplat: string = os.platform();
+  let myendian: string = os.endianness();
   // wants amd64, 386, arm64, armv61, ppc641e, s390x
   // currently not supported by runner but future proofed mapping
   switch (myarch) {
@@ -28,15 +30,20 @@ export function getArch(arch: string): string {
     //   arch = 'ppc64';
     //   break;
     case 'ppc':
-      if(myplat=='linux')
-        if(myendian=='LE')
+      if(myplat=='linux') {
+        if(myendian=='LE') {
           arch = 'ppc64le';
-        else
+        }
+        else {
           arch = 'ppc64';
-      elseif(myplat=='aix')
+        }
+      }
+      else if(myplat=='aix') {
         arch = 'ppc';
-      else
+      }
+      else {
         arch = 'ppc64';
+      }
       break;
     case 'x32':
       arch = '386';
