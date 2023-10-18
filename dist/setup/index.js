@@ -61950,8 +61950,8 @@ function getArch(arch) {
     // 'arm', 'arm64', 'ia32', 'mips', 'mipsel', 'ppc', 'ppc64', 's390', 's390x', 'x32', and 'x64'.
     // wants amd64, 386, arm64, armv61, ppc641e, s390x
     // currently not supported by runner but future proofed mapping
-    let arch = os.arch(); //SHS
-    switch (arch) {
+    let myarch: string = os.arch(); //SHS
+    switch (myarch) {
         case 'x64':
             arch = 'amd64';
             break;
